@@ -1,15 +1,14 @@
 ﻿<html lang="cs-cz">
 	<head>
-		<base href="/localhost" />
 		<title><?= $titulek ?></title>
 		<meta name="description" content="<?= $popis ?>" />
 		<meta name="keywords" content="<?= $klicova_slova ?>" />
-		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="styles/style.css">
 	</head>
 
 	<body>
             <header>
-                <img src="logo.png" width="30%">
+                <img src="images/logo.png" width="30%">
 		<h2>Pro snazší vyhledávání příběhů na Wattpadu</h2>
             </header>
             <div class="navbar">

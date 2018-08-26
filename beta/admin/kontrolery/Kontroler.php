@@ -5,7 +5,7 @@ abstract class Kontroler
         protected $data = array();
         protected $pohled = "";
         protected $hlavicka = array('titulek' => '', 'klicova_slova' => '', 'popis' => '');
-	function __construct($basepath) {
+	function __construct($basepath = "/beta/admin") {
             $this->basepath = $basepath;
         }
                 
@@ -13,11 +13,13 @@ abstract class Kontroler
         public function vypisPohled(){
             if ($this->pohled){
             	    extract($this->data);
-            	    require($this->$basepath."/pohledy/" . $this->pohled . ".phtml");
+            	    require("pohledy/" . $this->pohled . ".php");
             }
         }
         public function presmeruj($url){
-            header("Location: /$url");
+	    $gotoURL = $this->basepath."/".$url;
+            header("Location: ".$gotoURL);
+//            header("Location: ".$this->basepath."/".$url);
             header("Connection: close");
             exit;
         }
