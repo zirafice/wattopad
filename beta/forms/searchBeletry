@@ -83,7 +83,7 @@ function removeGenre2() {
 <body>
     <h1>Formulář pro vyhledávání beletrie</h1>
     <hr>
-<form name="addBeletry" method="POST" action="searchBeletry.php" enctype="multipart/form-data">
+<form name="searchBeletry" method="POST" action="searchBeletry.php" enctype="multipart/form-data">
 <table cellspacing="5px">
   <tr>
     <td> Pouze dokončené? </td>
