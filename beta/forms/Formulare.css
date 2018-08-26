@@ -1,0 +1,258 @@
+    /*Zmìna stylu textu*/
+td {
+    font-family: Georgia;
+    font-variant: petite-caps;
+    font-weight: bold;
+    color: #005FCC;
+}
+td.volby {
+    line-height: 80%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+hr {
+    height: 1px;
+    color: #005FCC;
+    background-color: #005FCC;
+    border: none;
+}
+h1 {
+    font-family: Georgia;
+    font-weight: normal;
+    color: #005FCC;
+    font-variant: petite-caps;
+    margin-top: 20px;
+    margin-bottom: -12px;
+}
+/*pole formuláøe*/
+.pole {
+    border: 1px solid #005FCC;
+    background-color: white;
+    border-radius: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+/*volby u radia*/
+.option {
+    font-weight: normal;
+}
+/*subvolby*/
+.suboption {
+    padding-left: 30px;
+    font-size: smaller;
+    color: dodgerblue;
+}
+/*pole tabulky*/
+.top {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 22px;
+}
+/* The container */
+.container {
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmarkON {
+    position: absolute;
+    top: 0;
+    left: 68px;
+    height: 19px;
+    width: 60px;
+    text-align: center;
+    background-color: white;
+    color: #005FCC;
+    border-radius: 3px;
+    border: 1px solid #005FCC;
+}
+
+.checkmarkOFF {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 19px;
+    width: 60px;
+    text-align: center;
+    background-color: #005FCC;
+    color: white;
+    border-radius: 3px;
+    border: 1px solid #005FCC;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmarkON {
+    background-color: #005FCC;
+    border: 1px solid #005FCC;
+    color: white;
+}
+
+.container input:checked ~ .checkmarkOFF {
+    background-color: white;
+    border: 1px solid #005FCC;
+    color: #005FCC;
+}
+/* The container */
+.optcheckbox {
+    display: block;
+    position: relative;
+    padding-left: 25px;
+}
+
+/* Hide the browser's default checkbox */
+.optcheckbox input {
+    position: absolute;
+    opacity: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: -6;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: white;
+    border-radius: 3px;
+    border: 1px solid #005FCC;
+}
+
+/* On mouse-over, add a grey background color */
+.optcheckbox:hover input ~ .checkmark {
+    background-color: #d5d5d5;
+}
+
+/* When the checkbox is checked, add a blue background */
+.optcheckbox input:checked ~ .checkmark {
+    background-color: #005FCC;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.optcheckbox input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.optcheckbox .checkmark:after {
+    left: 5px;
+    top: 2px;
+    width: 4px;
+    height: 7px;
+    border: solid white;
+    border-width: 0 1px 1px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(40deg);
+}
+/* The container */
+.optradio {
+    display: block;
+    position: relative;
+    padding-left: 25px;
+}
+
+/* Hide the browser's default radio button */
+.optradio input {
+    position: absolute;
+    opacity: 0;
+}
+
+/* Create a custom radio button */
+.radiomark {
+    position: absolute;
+    top: -6;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: white;
+    border-radius: 50%;
+    border: 1px solid #005FCC;
+}
+
+/* On mouse-over, add a grey background color */
+.optradio:hover input ~ .radiomark {
+    background-color: #d5d5d5;
+}
+
+/* When the radio button is checked, add a blue background */
+.optradio input:checked ~ .radiomark {
+    background-color: #005FCC;
+}
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.radiomark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.optradio input:checked ~ .radiomark:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.optradio .radiomark:after {
+ 	top: 4px;
+	left: 4px;
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	background: white;
+}
+input.tlacitko {
+  color: white; /* barva textu */
+  font-size: 30px;
+  font-weight: 100;
+  font-variant: small-caps;
+  background: #005FCC; /* pozadí tlaèítka */
+  outline: none; /* odstraòovat vnìjší rámeèek v Mozilla */
+  border-color: transparent;
+  border-radius: 3px;
+  margin: 2px;
+  padding: 3px;
+} 
+input.tlacitko:hover { background: white; color: #005FCC;} /* pøi najetí myší */
+input.tlacitko:active { background: lightgrey; color: #005FCC;} /* pøi stisknutí */
+
+input.file {
+	opacity: 0;
+        overflow: hidden;
+	position: absolute;
+}
+input.file + label {
+    color: white;
+    background-color: #005FCC;
+    border-radius: 3px;
+    border: transparent;
+    padding-left: 5px;
+    padding-right: 7px;
+    font-weight: normal;
+}
+
+input.file:hover + label { background: white; color: #005FCC} /* pøi najetí myší */
+input.file:active + label { background: lightgrey; color: #005FCC} /* pøi stisknutí */
+
+select {
+    color: #005FCC;
+    width: 190px;
+    font-family: Georgia;
+    border: 1px solid #005FCC;
+    border-radius: 3px;
+    padding: 5px;
+    height: 180px;
+}
+
