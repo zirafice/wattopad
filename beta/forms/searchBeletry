@@ -96,7 +96,7 @@ function removeGenre2() {
   </tr><tr>
     <td style="vertical-align: top;"> Žánry: </td>
     
-        <td><select name="zanry" size="1">
+        <td><select name="zanry" style="height: auto">
                 <option value="vsechny">Všechny vybrané</option>
                 <option value="aspon_jeden">Aspoň jeden</option>
         </select>
@@ -143,10 +143,10 @@ function removeGenre2() {
           <br><label class="optradio"><input type="radio" name="romance" value="ne">Ne<span class="radiomark"></span></label></td>
   </tr><tr>
     <td> Počet kapitol: </td>
-    <td>Min. <input type="number" name="minpocetkap" size="25" class="pole"> Max. <input type="number" name="maxpocetkap" size="25" class="pole"></td>
+    <td>Min. <input type="number" name="minpocetkap" style="width: 90" class="pole"> Max. <input type="number" name="maxpocetkap" style="width: 90" class="pole"></td>
   </tr><tr>
     <td> Průměrná délka kapitol: </td>
-    <td>Min. <input type="number" name="mindelkakap" size="25" class="pole"> Max. <input type="number" name="maxdelkakap" size="25" class="pole"></td>
+    <td>Min. <input type="number" name="mindelkakap" style="width: 90" class="pole"> Max. <input type="number" name="maxdelkakap" style="width: 90" class="pole"></td>
   </tr><tr>
       <td class="volby" style="vertical-align: top;"> Délka příběhu: </td>
       <td class="option volby"><label class="optcheckbox"><input type="checkbox" name="kratky">Krátký (do 5K slov)<span class="checkmark"></span></label>
