@@ -1,0 +1,127 @@
+<html>
+<head>
+    <TITLE>WattoPad form add story</TITLE>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="Formulare.css">
+</head>
+
+<body>
+    <h1>Formulář pro vyhledávání fanfikcí</h1>
+    <hr>
+<form name="searchFanfiction" method="POST" action="searchFanfiction.php" enctype="multipart/form-data">
+<table cellspacing="5px">
+  <tr>
+    <td> Pouze dokončené? </td>
+    <td class="top"><label class="container"><input type="checkbox" name="done"><span class="checkmarkOFF">Ne</span><span class="checkmarkON">Ano</span></label></td>
+  </tr><tr>
+      <td class="volby" style="vertical-align: top;">Jazyk:</td>
+    <td class="option volby"><label class="optcheckbox"><input type="checkbox" name="CZ">Čeština<span class="checkmark"></span></label>
+        <br><label class="optcheckbox"><input type="checkbox" name="SK">Slovenština<span class="checkmark"></span></label>
+        <br><label class="optcheckbox"><input type="checkbox" name="jiny">Jiný<span class="checkmark"></span></label></td>
+  </tr><tr>
+    <td style="vertical-align: top;"> Typ FF: </td>
+    <td class="option volby"><label class="optradio"><input type="radio" name="typFF" value="Fandomy">FF na fandomy<span class="radiomark"></span></label>
+        <br><label class="optradio"><input type="radio" name="typFF" value="Osobnosti">FF na osobnosti<span class="radiomark"></span></label>
+        <br><label class="optradio"><input type="radio" name="typFF" value="Anime">FF na anime<span class="radiomark"></span></label>
+    </td>
+  </tr><tr>
+      <td style="vertical-align: top;"> Crossover: </td>
+    <td class="option volby"><label class="optcheckbox"><input type="checkbox" name="Ne">Ne<span class="checkmark"></span></label>
+        <br><label class="optcheckbox"><input type="checkbox" name="V rámci typu">Crossover v rámci typu<span class="checkmark"></span></label>
+        <br><label class="optcheckbox"><input type="checkbox" name="Více typů">Crossover více typů<span class="checkmark"></span></label>
+    </td>
+  </tr><tr>
+      <td style="vertical-align: top;"> Fandom: </td>
+              <td><select name="fandom" size="10">
+                      <option name="option">*hodnoty z tabulky*</option>
+          </select>
+  </tr><tr>
+      <tr>
+      <td style="vertical-align: top;"> Osobnost: </td>
+              <td><select name="osobnost" size="10">
+                      <option name="option">*hodnoty z tabulky*</option>
+          </select>
+  </tr><tr>
+      <td style="vertical-align: top;"> Anime: </td>
+              <td><select name="anime" size="10">
+                      <option name="option">*hodnoty z tabulky*</option>
+          </select>
+  </tr><tr>
+    <td style="vertical-align: top;"> Klíčová slova: <br> <i style="font-size: smaller;color: dodgerblue;">oddělte čárkou</i></td>
+    <td><textarea name="keywords" rows="10" cols="60" class="pole"></textarea></td>
+  </tr><tr>
+    <td style="vertical-align: top;"> Výskyt romantiky: </td>
+    <td class="option volby"><label class="optradio"><input type="radio" name="romance" value="">Je mi to jedno<span class="radiomark"></span></label>
+          <br><label class="optradio"><input type="radio" name="romance" value="ano">Ano<span class="radiomark"></span></label>
+          <br><label class="optradio"><input type="radio" name="romance" value="ne">Ne<span class="radiomark"></span></label></td>
+  </tr><tr>
+    <td> Počet kapitol: </td>
+    <td>Min. <input type="number" name="minpocetkap" size="25" class="pole"> Max. <input type="number" name="maxpocetkap" size="25" class="pole"></td>
+  </tr><tr>
+    <td> Průměrná délka kapitol: </td>
+    <td>Min. <input type="number" name="mindelkakap" size="25" class="pole"> Max. <input type="number" name="maxdelkakap" size="25" class="pole"></td>
+  </tr><tr>
+      <td class="volby" style="vertical-align: top;"> Délka příběhu: </td>
+      <td class="option volby"><label class="optcheckbox"><input type="checkbox" name="kratky">Krátký (do 5K slov)<span class="checkmark"></span></label>
+          <br><label class="optcheckbox"><input type="checkbox" name="stredni">Stření (5K-30K slov)<span class="checkmark"></span></label>
+          <br><label class="optcheckbox"><input type="checkbox" name="dlouhy">Dlouhý (nad 30K slov)<span class="checkmark"></span></label>
+          <br><label class="optcheckbox"><input type="checkbox" name="soubor">Soubor povídek<span class="checkmark"></span></label>
+      </td>
+  </tr><tr>
+    <td class="volby" style="vertical-align: top;">Obsah pro dospělé:</td>
+    <td class="option volby"><label class="optcheckbox"><input type="checkbox" name="none"><span style="color: green; font-weight: bold;">Žádný</span><span class="checkmark"></span></label>
+        <br><label class="optcheckbox"><input type="checkbox" name="13+"><span style="color: gold; font-weight: bold;">13+ </span>(vyšší výskyt vulgarismů)<span class="checkmark"></span></label>
+        <br><label class="optcheckbox"><input type="checkbox" name="15+"><span style="color: orange; font-weight: bold;">15+ </span>(vyšší výskyt násilí)<span class="checkmark"></span></label>
+        <br><label class="optcheckbox"><input type="checkbox" name="18+"><span style="color: orangered; font-weight: bold;">18+ </span>(erotika)<span class="checkmark"></span></label>
+        <br><label class="optcheckbox"><input type="checkbox" name="extreme"><span style="color: red; font-weight: bold;">Extrémní </span>(znásilnění nebo podrobně popsané krvavé scény)<span class="checkmark"></span></label></td>
+  </tr><tr>
+      <td class="volby" style="vertical-align: top;">Forma psaní:</td>
+      <td class="option volby"><label class="optcheckbox"><input type="checkbox" name="forma" value="ich" >Ich<span class="checkmark"></span></label>
+          <br><label class="optcheckbox"><input type="checkbox" name="forma" value="er" >Er<span class="checkmark"></span></label>
+          <br><label class="optcheckbox"><input type="checkbox" name="forma" value="jina" >Jiná<span class="checkmark"></span></label></td>
+  </tr><tr>
+      <td style="vertical-align: top">Výskyt LGBT:</td>
+      <td class="option volby"><label class="optradio"><input type="radio" name="lgbt" value="">Je mi to jedno<span class="radiomark"></span></label>
+          <br><label class="optradio"><input type="radio" name="lgbt" value="ano">Ano<span class="radiomark"></span></label>
+          <br><label class="optradio"><input type="radio" name="lgbt" value="ne">Ne<span class="radiomark"></span></label></td>
+  </tr><tr>
+      <td class="suboption volby" style="vertical-align: top">Typ:</td>
+            <td class="option suboption volby"><label class="optcheckbox"><input type="checkbox" name="gxg" id="gxgID"> Gilr x girl<span class="checkmark"></span></label>
+            <br><label class="optcheckbox"><input type="checkbox" name="bxb" id="bxbID"> Boy x boy<span class="checkmark"></span></label>
+            <br><label class="optcheckbox"><input type="checkbox" name="trans" id="transID"> Trans<span class="checkmark"></span></label>
+            <br><label class="optcheckbox"><input type="checkbox" name="asexual" id="asexualID"> Asexual<span class="checkmark"></span></label></td>
+  </tr><tr>
+      <td class="suboption volby" style="vertical-align: top">Vyloučit LGBT typ:</td>
+            <td class="option suboption volby"><label class="optcheckbox"><input type="checkbox" name="gxg" id="gxgID"> Gilr x girl<span class="checkmark"></span></label>
+            <br><label class="optcheckbox"><input type="checkbox" name="bxb" id="bxbID"> Boy x boy<span class="checkmark"></span></label>
+            <br><label class="optcheckbox"><input type="checkbox" name="trans" id="transID"> Trans<span class="checkmark"></span></label>
+            <br><label class="optcheckbox"><input type="checkbox" name="asexual" id="asexualID"> Asexual<span class="checkmark"></span></label></td>
+  </tr><tr>
+      <td class="suboption volby" style="vertical-align: top">Význam:</td>
+            <td class="option suboption volby"><label class="optcheckbox"><input type="checkbox" name="hlavni" id="hlavniID" >Hlavní<span class="checkmark"></span></label>
+                <br><label class="optcheckbox"><input type="checkbox" name="vedlejsi" id="vedlejsiID">Vedlejší<span class="checkmark"></span></label></td>
+  </tr><tr>
+      <td style="vertical-align: top">Alternative universe: <br> <i style="font-size: smaller;color: dodgerblue;">*Odporuje předloze</i></td>
+      <td class="option volby"><label class="optradio"><input type="radio" name="AU" value="">Je mi to jedno<span class="radiomark"></span></label>
+          <br><label class="optradio"><input type="radio" name="AU" value="ano">Ano<span class="radiomark"></span></label>
+          <br><label class="optradio"><input type="radio" name="AU" value="ne">Ne<span class="radiomark"></span></label></td>
+  </tr><tr>
+      <td style="vertical-align: top;"> Výskyt OC: <br> <i style="font-size: smaller;color: dodgerblue;">*Nekánonické postava</i></td>
+    <td class="option volby"><label class="optcheckbox"><input type="checkbox" name="most">Všechny nebo většina postav OC<span class="checkmark"></span></label>
+        <br><label class="optcheckbox"><input type="checkbox" name="main">OC především hlavní postava<span class="checkmark"></span></label>
+        <br><label class="optcheckbox"><input type="checkbox" name="none">Bez OC nebo OC jen ve vedlejších rolích<span class="checkmark"></span></label>
+    </td>
+  </tr><tr>
+      <td style="vertical-align: top;"> Ship: <br> <i style="font-size: smaller;color: dodgerblue;">*párování postav</i></td>
+    <td class="option volby"><label class="optcheckbox"><input type="checkbox" name="noShip">Žádný<span class="checkmark"></span></label>
+        <br><label class="optcheckbox"><input type="checkbox" name="canonShip">Kánonický ship<span class="checkmark"></span></label>
+        <br><label class="optcheckbox"><input type="checkbox" name="noncanonShip">Nekánonický ship<span class="checkmark"></span></label>
+        <br><label class="optcheckbox"><input type="checkbox" name="OCship">Ship OC s kánonickou postavou<span class="checkmark"></span></label>
+    </td>
+  </tr><tr>
+          <td></td><td style="margin-top: 5px; display: block;"><input type="submit" class="tlacitko" value=" Odeslat "></td>
+  </tr>
+</table>
+</form>
+</body>
+</html>	
