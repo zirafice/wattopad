@@ -22,6 +22,35 @@ function shipy()
                     document.getElementById('noncanonShipID').disabled = false;
 		}
             }
+function Show() {
+    if (document.getElementById("FandomyID").checked == true || document.getElementById("outtype").checked == true) {
+        document.getElementById("FandomID").hidden = false;
+    } else {
+        document.getElementById("FandomID").hidden = true;
+    }
+    if (document.getElementById("OsobnostiID").checked == true || document.getElementById("outtype").checked == true) {
+        document.getElementById("OsobnostID").hidden = false;
+    } else {
+        document.getElementById("OsobnostID").hidden = true;
+    }
+    if (document.getElementById("AnimeID").checked == true || document.getElementById("outtype").checked == true) {
+        document.getElementById("Anime2ID").hidden = false;
+    } else {
+        document.getElementById("Anime2ID").hidden = true;
+    }
+}
+function Multiple () {
+    if (document.getElementById("intype").checked == true || document.getElementById("outtype").checked == true) {
+        document.getElementById("FanTab").multiple = true;
+        document.getElementById("OsTab").multiple = true;
+        document.getElementById("AnTab").multiple = true;
+    }
+    else {
+        document.getElementById("FanTab").multiple = false;
+        document.getElementById("OsTab").multiple = false;
+        document.getElementById("AnTab").multiple = false;
+    }
+}
 </script>
 <body>
     <h1>Formulář pro přidání fanfikce</h1>
@@ -53,34 +82,32 @@ function shipy()
     <td><textarea  name="anotace" rows="10" cols="60" class="pole"></textarea></td>
   </tr><tr>
     <td style="vertical-align: top;"> Typ FF: </td>
-    <td class="option volby"><label class="optradio"><input type="radio" name="typFF" value="Fandomy">FF na fandomy<span class="radiomark"></span></label>
-        <br><label class="optradio"><input type="radio" name="typFF" value="Osobnosti">FF na osobnosti<span class="radiomark"></span></label>
-        <br><label class="optradio"><input type="radio" name="typFF" value="Anime">FF na anime<span class="radiomark"></span></label>
+    <td class="option volby"><label class="optradio"><input type="radio" name="typFF" value="Fandomy" id="FandomyID" onchange="Show()">FF na fandomy<span class="radiomark"></span></label>
+        <br><label class="optradio"><input type="radio" name="typFF" value="Osobnosti" id="OsobnostiID" onchange="Show()">FF na osobnosti<span class="radiomark"></span></label>
+        <br><label class="optradio"><input type="radio" name="typFF" value="Anime" id="AnimeID" onchange="Show()">FF na anime<span class="radiomark"></span></label>
     </td>
   </tr><tr>
       <td style="vertical-align: top;"> Crossover: </td>
-    <td class="option volby"><label class="optradio"><input type="radio" name="crossover" value="Ne">Ne<span class="radiomark"></span></label>
-        <br><label class="optradio"><input type="radio" name="crossover" value="V rámci typu">Crossover v rámci typu<span class="radiomark"></span></label>
-        <br><label class="optradio"><input type="radio" name="crossover" value="Více typů">Crossover více typů<span class="radiomark"></span></label>
+    <td class="option volby"><label class="optradio"><input type="radio" name="crossover" value="Ne" onchange="Show(), Multiple()">Ne<span class="radiomark"></span></label>
+        <br><label class="optradio"><input type="radio" name="crossover" value="V rámci typu" id="intype" onchange="Show(), Multiple()">Crossover v rámci typu<span class="radiomark"></span></label>
+        <br><label class="optradio"><input type="radio" name="crossover" value="Více typů" id="outtype" onchange="Show(), Multiple()">Crossover více typů<span class="radiomark"></span></label>
     </td>
-  </tr><tr>
+  </tr><tr id="FandomID" hidden>
       <td style="vertical-align: top;"> Fandom: </td>
-              <td><select name="fandom" size="10">
+              <td><select name="fandom" size="10" id="FanTab">
                       <option name="option">*hodnoty z tabulky*</option>
           </select>
-  </tr><tr>
-      <tr>
+  </tr><tr id="OsobnostID" hidden>
       <td style="vertical-align: top;"> Osobnost: </td>
-              <td><select name="osobnost" size="10">
+              <td><select name="osobnost" size="10" id="OsTab">
                       <option name="option">*hodnoty z tabulky*</option>
           </select>
-  </tr>
-  <tr>
-      <td style="vertical-align: top;"> Anime: </td>
+  </tr><tr id="Anime2ID" hidden>
+      <td style="vertical-align: top;" id="AnTab"> Anime: </td>
               <td><select name="anime" size="10">
                       <option name="option">*hodnoty z tabulky*</option>
           </select>
-  </tr>
+  </tr><tr>
     <td style="vertical-align: top;"> Klíčová slova: <br> <i style="font-size: smaller;color: dodgerblue;">oddělte čárkou</i></td>
     <td><textarea name="keywords" rows="10" cols="60" class="pole"></textarea></td>
   </tr><tr>
