@@ -2,13 +2,16 @@
 mb_internal_encoding("UTF-8");
 function autoloadFunkce($trida)
 {
-        // Konèí název tøídy øetìzcem "Kontroler" ?
+        // Konï¿½ï¿½ nï¿½zev tï¿½ï¿½dy ï¿½etï¿½zcem "Kontroler" ?
         if (preg_match('/Kontroler$/', $trida))
                 require("kontrolery/" . $trida . ".php");
         else
                 require("modely/" . $trida . ".php");
 }
+
+$config = include 'config.php';
+
 spl_autoload_register("autoloadFunkce");
-$smerovac = new SmerovacKontroler("/beta/admin");
+$smerovac = new SmerovacKontroler("/wattopad/beta/admin");
 $smerovac->zpracuj(array($_SERVER['REQUEST_URI']));
 $smerovac->vypisPohled();
