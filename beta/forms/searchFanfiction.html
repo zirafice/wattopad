@@ -4,7 +4,53 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="Formulare.css">
 </head>
-
+<script language="JavaScript">
+function ShowLGBT() {
+    if (document.getElementById("1").checked == true || document.getElementById("2").checked == true) {
+        document.getElementById("5").hidden = false;
+        document.getElementById("6").hidden = false;
+    }
+    else {
+        document.getElementById("5").hidden = true;
+        document.getElementById("6").hidden = true;
+    }
+    if (document.getElementById("2").checked == true) {
+        document.getElementById("4").hidden = false;
+    }
+    else {
+        document.getElementById("4").hidden = true;
+    }
+}
+function Show() {
+    if (document.getElementById("FandomyID").checked == true || document.getElementById("outtype").checked == true) {
+        document.getElementById("FandomID").hidden = false;
+    } else {
+        document.getElementById("FandomID").hidden = true;
+    }
+    if (document.getElementById("OsobnostiID").checked == true || document.getElementById("outtype").checked == true) {
+        document.getElementById("OsobnostID").hidden = false;
+    } else {
+        document.getElementById("OsobnostID").hidden = true;
+    }
+    if (document.getElementById("AnimeID").checked == true || document.getElementById("outtype").checked == true) {
+        document.getElementById("Anime2ID").hidden = false;
+    } else {
+        document.getElementById("Anime2ID").hidden = true;
+    }
+}
+function Multiple () {
+    if (document.getElementById("intype").checked == true || document.getElementById("outtype").checked == true) {
+        document.getElementById("FanTab").multiple = true;
+        document.getElementById("OsTab").multiple = true;
+        document.getElementById("AnTab").multiple = true;
+    }
+    else {
+        document.getElementById("FanTab").multiple = false;
+        document.getElementById("OsTab").multiple = false;
+        document.getElementById("AnTab").multiple = false;
+    }
+}
+</script>
 <body>
     <h1>Formulář pro vyhledávání fanfikcí</h1>
     <hr>
@@ -20,28 +66,27 @@
         <br><label class="optcheckbox"><input type="checkbox" name="jiny">Jiný<span class="checkmark"></span></label></td>
   </tr><tr>
     <td style="vertical-align: top;"> Typ FF: </td>
-    <td class="option volby"><label class="optradio"><input type="radio" name="typFF" value="Fandomy">FF na fandomy<span class="radiomark"></span></label>
-        <br><label class="optradio"><input type="radio" name="typFF" value="Osobnosti">FF na osobnosti<span class="radiomark"></span></label>
-        <br><label class="optradio"><input type="radio" name="typFF" value="Anime">FF na anime<span class="radiomark"></span></label>
+    <td class="option volby"><label class="optradio"><input type="radio" name="typFF" value="Fandomy" id="FandomyID" onchange="Show()">FF na fandomy<span class="radiomark"></span></label>
+        <br><label class="optradio"><input type="radio" name="typFF" value="Osobnosti" id="OsobnostiID" onchange="Show()">FF na osobnosti<span class="radiomark"></span></label>
+        <br><label class="optradio"><input type="radio" name="typFF" value="Anime" id="AnimeID" onchange="Show()">FF na anime<span class="radiomark"></span></label>
     </td>
   </tr><tr>
       <td style="vertical-align: top;"> Crossover: </td>
-    <td class="option volby"><label class="optcheckbox"><input type="checkbox" name="Ne">Ne<span class="checkmark"></span></label>
-        <br><label class="optcheckbox"><input type="checkbox" name="V rámci typu">Crossover v rámci typu<span class="checkmark"></span></label>
-        <br><label class="optcheckbox"><input type="checkbox" name="Více typů">Crossover více typů<span class="checkmark"></span></label>
+    <td class="option volby"><label class="optcheckbox"><input type="checkbox" name="Ne" onchange="Show(), Multiple()">Ne<span class="checkmark"></span></label>
+        <br><label class="optcheckbox"><input type="checkbox" name="V rámci typu" id="intype" onchange="Show(), Multiple()">Crossover v rámci typu<span class="checkmark"></span></label>
+        <br><label class="optcheckbox"><input type="checkbox" name="Více typů" id="outtype" onchange="Show(), Multiple()">Crossover více typů<span class="checkmark"></span></label>
     </td>
-  </tr><tr>
+  </tr><tr hidden id="FandomID">
       <td style="vertical-align: top;"> Fandom: </td>
               <td><select name="fandom" size="10">
                       <option name="option">*hodnoty z tabulky*</option>
           </select>
-  </tr><tr>
-      <tr>
+  </tr><tr hidden id="OsobnostID">
       <td style="vertical-align: top;"> Osobnost: </td>
               <td><select name="osobnost" size="10">
                       <option name="option">*hodnoty z tabulky*</option>
           </select>
-  </tr><tr>
+  </tr><tr hidden id="Anime2ID">
       <td style="vertical-align: top;"> Anime: </td>
               <td><select name="anime" size="10">
                       <option name="option">*hodnoty z tabulky*</option>
@@ -81,22 +126,22 @@
           <br><label class="optcheckbox"><input type="checkbox" name="forma" value="jina" >Jiná<span class="checkmark"></span></label></td>
   </tr><tr>
       <td style="vertical-align: top">Výskyt LGBT:</td>
-      <td class="option volby"><label class="optradio"><input type="radio" name="lgbt" value="">Je mi to jedno<span class="radiomark"></span></label>
-          <br><label class="optradio"><input type="radio" name="lgbt" value="ano">Ano<span class="radiomark"></span></label>
-          <br><label class="optradio"><input type="radio" name="lgbt" value="ne">Ne<span class="radiomark"></span></label></td>
-  </tr><tr>
+      <td class="option volby"><label class="optradio"><input type="radio" name="lgbt" value="" id="1" onchange="ShowLGBT()">Je mi to jedno<span class="radiomark"></span></label>
+          <br><label class="optradio"><input type="radio" name="lgbt" value="ano" id="2" onchange="ShowLGBT()">Ano<span class="radiomark"></span></label>
+          <br><label class="optradio"><input type="radio" name="lgbt" value="ne" id="3" onchange="ShowLGBT()">Ne<span class="radiomark"></span></label></td>
+  </tr><tr hidden id="4">
       <td class="suboption volby" style="vertical-align: top">Typ:</td>
             <td class="option suboption volby"><label class="optcheckbox"><input type="checkbox" name="gxg" id="gxgID"> Gilr x girl<span class="checkmark"></span></label>
             <br><label class="optcheckbox"><input type="checkbox" name="bxb" id="bxbID"> Boy x boy<span class="checkmark"></span></label>
             <br><label class="optcheckbox"><input type="checkbox" name="trans" id="transID"> Trans<span class="checkmark"></span></label>
             <br><label class="optcheckbox"><input type="checkbox" name="asexual" id="asexualID"> Asexual<span class="checkmark"></span></label></td>
-  </tr><tr>
+  </tr><tr hidden id="5">
       <td class="suboption volby" style="vertical-align: top">Vyloučit LGBT typ:</td>
             <td class="option suboption volby"><label class="optcheckbox"><input type="checkbox" name="gxg" id="gxgID"> Gilr x girl<span class="checkmark"></span></label>
             <br><label class="optcheckbox"><input type="checkbox" name="bxb" id="bxbID"> Boy x boy<span class="checkmark"></span></label>
             <br><label class="optcheckbox"><input type="checkbox" name="trans" id="transID"> Trans<span class="checkmark"></span></label>
             <br><label class="optcheckbox"><input type="checkbox" name="asexual" id="asexualID"> Asexual<span class="checkmark"></span></label></td>
-  </tr><tr>
+  </tr><tr hidden id="6">
       <td class="suboption volby" style="vertical-align: top">Význam:</td>
             <td class="option suboption volby"><label class="optcheckbox"><input type="checkbox" name="hlavni" id="hlavniID" >Hlavní<span class="checkmark"></span></label>
                 <br><label class="optcheckbox"><input type="checkbox" name="vedlejsi" id="vedlejsiID">Vedlejší<span class="checkmark"></span></label></td>
