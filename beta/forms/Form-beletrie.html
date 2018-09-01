@@ -137,7 +137,7 @@ function character()
             <td>  <input type="button" name="larrow" class="tlacitko" style="font-size: initial; font-weight: bold;" value=" << " onClick="addGenre()"><br><input type="button" name="rarrow" class="tlacitko" style="font-size: initial; font-weight: bold;" value=" >> " onClick="removeGenre()"> </td>
 	    <td> Ostatní žánry <br> <select style="color: lightskyblue;" name="genresNo" size="10" multiple>
 		<option value="1">Akční</option>
-                <option value="2">ChickLit</option>
+                <option value="2">ChickLit</option> <!-- TODO: Tohle by melo byt v DB -->
                 <option value="3">Detektivka</option>
                 <option value="4">Dětská literatura</option>
                 <option value="5">Dobrodružné</option>
@@ -195,7 +195,7 @@ function character()
           <br><label class="optradio"><input type="radio" name="forma" value="er" required>Er<span class="radiomark"></span></label>
           <br><label class="optradio"><input type="radio" name="forma" value="jina" required>Jiná<span class="radiomark"></span></label></td>
   </tr><tr>
-      <td>Výskyt LGBT:</td>
+      <td>Výskyt LGBT:</td> <!-- TODO: Trigger na ano? ( rozbaleni ) -->
       <td class="top"><label class="container"><input type="checkbox" name="lgbt" id="lgbtID" onchange="lgbtq()"><span class="checkmarkOFF">Ne</span><span class="checkmarkON">Ano</span></label></td>
   </tr><tr>
       <td class="suboption volby" style="vertical-align: top">Typ:</td>

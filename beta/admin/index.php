@@ -3,15 +3,19 @@ mb_internal_encoding("UTF-8");
 function autoloadFunkce($trida)
 {
         // Kon�� n�zev t��dy �et�zcem "Kontroler" ?
-        if (preg_match('/Kontroler$/', $trida))
+        if (preg_match('/Kontroler$/', $trida)){
                 require("kontrolery/" . $trida . ".php");
-        else
+        } else {
+                // Slozka modely nebyla vytvorena, jedna se o preklep?
                 require("modely/" . $trida . ".php");
+        }
 }
-
-$config = include 'config.php';
-
 spl_autoload_register("autoloadFunkce");
-$smerovac = new SmerovacKontroler("/wattopad/beta/admin");
+// Zakldani nastaveni a nacteni configu
+include 'init.php';
+
+$database = databaseModel::getInstance();
+
+$smerovac = new SmerovacKontroler(BASEPATH);
 $smerovac->zpracuj(array($_SERVER['REQUEST_URI']));
 $smerovac->vypisPohled();
