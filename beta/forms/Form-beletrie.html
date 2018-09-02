@@ -102,7 +102,7 @@ function character()
 <body>
     <h1>Formulář pro přidání beletrie</h1>
     <hr>
-<form name="addBeletry" method="POST" action="saveBeletry.php" enctype="multipart/form-data">
+<form name="addBeletry" method="POST" action="../admin/index.php" enctype="multipart/form-data">
 <table cellspacing="5px">
   <tr>
     <td> Název: </td>
@@ -224,7 +224,7 @@ function character()
             <br><label class="optradio"><input type="radio" name="pohlavi" value="zena" id="zenaID">Žena<span class="radiomark"></span></label>
             <br><label class="optradio"><input type="radio" name="pohlavi" value="other" id="otherID" required>Jiné/nemá<span class="radiomark"></span></label></td>
   </tr><tr>
-          <td></td><td style="margin-top: 5px; display: block;"><input type="submit" class="tlacitko" value=" Odeslat "></td>
+          <td></td><td style="margin-top: 5px; display: block;"><input type="submit" name="FormBeletrie" class="tlacitko" value=" Odeslat "></td>
   </tr>
 </table>
 </form>

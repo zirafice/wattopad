@@ -78,8 +78,18 @@ class databaseModel extends PDO
      * @return bool
      */
     public function processStatement($statement, $input_parameters = null, $driver_options = []){
-        $this->prepareStatement($statement, $driver_options);
-        return $this->executeStatement($input_parameters);
+        try{
+            $this->prepareStatement($statement, $driver_options);
+            file_put_contents(APP_DIR.'/queries.log', "[ ".date("Y-m-d H:i:s")."] ".$statement.PHP_EOL,FILE_APPEND);
+            return $this->executeStatement($input_parameters);
+        } catch (Exception $e){
+            echo "Something went wrong :(";
+            // TODO: Make static error log class and method
+            file_put_contents(APP_DIR.'/error.log', "[ ".date("Y-m-d H:i:s")."] ".$e->getMessage().PHP_EOL,FILE_APPEND);
+            file_put_contents(APP_DIR.'/error.log', "[ ".date("Y-m-d H:i:s")."] ".$statement.PHP_EOL,FILE_APPEND);
+            die();
+            return false;
+        }
     }
 
     /**

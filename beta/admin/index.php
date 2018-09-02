@@ -16,6 +16,11 @@ include 'init.php';
 
 $database = databaseModel::getInstance();
 
+if ($_SERVER['REQUEST_METHOD']){
+    $f = new formModel($_POST);
+}
+
+
 $smerovac = new SmerovacKontroler(BASEPATH);
 $smerovac->zpracuj(array($_SERVER['REQUEST_URI']));
 $smerovac->vypisPohled();
