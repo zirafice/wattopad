@@ -89,8 +89,8 @@ function Multiple () {
   </tr><tr>
       <td style="vertical-align: top;"> Crossover: </td>
     <td class="option volby"><label class="optradio"><input type="radio" name="crossover" value="Ne" onchange="Show(), Multiple()">Ne<span class="radiomark"></span></label>
-        <br><label class="optradio"><input type="radio" name="crossover" value="V rámci typu" id="intype" onchange="Show(), Multiple()">Crossover v rámci typu<span class="radiomark"></span></label>
-        <br><label class="optradio"><input type="radio" name="crossover" value="Více typů" id="outtype" onchange="Show(), Multiple()">Crossover více typů<span class="radiomark"></span></label>
+        <br><label class="optradio"><input type="radio" name="crossover" value="Crossover v rámci typu" id="intype" onchange="Show(), Multiple()">Crossover v rámci typu<span class="radiomark"></span></label>
+        <br><label class="optradio"><input type="radio" name="crossover" value="Crossover více typů" id="outtype" onchange="Show(), Multiple()">Crossover více typů<span class="radiomark"></span></label>
     </td>
   </tr><tr id="FandomID" hidden>
       <td style="vertical-align: top;"> Fandom: </td>
@@ -124,62 +124,44 @@ function Multiple () {
     <td><input type="number" name="delkakap" size="50" class="pole"></td>
   </tr><tr>
       <td class="volby" style="vertical-align: top;"> Délka příběhu: </td>
-      <td class="option volby"><label class="optradio"><input type="radio" name="delka" value="kratky" required>Krátký (do 5K slov)<span class="radiomark"></span>
-</label>
-          <br><label class="optradio"><input type="radio" name="delka" value="stredni">Stření (5K-30K slov)<span class="radiomark"></span>
-</label>
-          <br><label class="optradio"><input type="radio" name="delka" value="dlouhy">Dlouhý (nad 30K slov)<span class="radiomark"></span>
-</label>
-          <br><label class="optradio"><input type="radio" name="delka" value="soubor">Soubor povídek<span class="radiomark"></span>
-</label>
+      <td class="option volby"><label class="optradio"><input type="radio" name="delka" value="Krátký (do 5K slov)" required>Krátký (do 5K slov)<span class="radiomark"></span></label>
+          <br><label class="optradio"><input type="radio" name="delka" value="Stření (5K-30K slov)" required="">Stření (5K-30K slov)<span class="radiomark"></span></label>
+          <br><label class="optradio"><input type="radio" name="delka" value="Dlouhý (nad 30K slov)" required="">Dlouhý (nad 30K slov)<span class="radiomark"></span></label>
+          <br><label class="optradio"><input type="radio" name="delka" value="Soubor povídek" required="">Soubor povídek<span class="radiomark"></span></label>
       </td>
   </tr><tr>
     <td class="volby" style="vertical-align: top;"> Obsah pro dospělé: </td>
-    <td class="option volby"><label class="optradio"><input type="radio" name="adult_lock" value="none" required><span style="color: green; font-weight: bold;">Žádný</span><span class="radiomark"></span>
-</label>
-        <br><label class="optradio"><input type="radio" name="adult_lock" value="13+" required><span style="color: gold; font-weight: bold;">13+ </span>(vyšší výskyt vulgarismů)<span class="radiomark"></span>
-</label>
-        <br><label class="optradio"><input type="radio" name="adult_lock" value="15+" required><span style="color: orange; font-weight: bold;">15+ </span>(vyšší výskyt násilí)<span class="radiomark"></span>
-</label>
-        <br><label class="optradio"><input type="radio" name="adult_lock" value="18+" required><span style="color: orangered; font-weight: bold;">18+ </span>(erotika)<span class="radiomark"></span>
-</label>
-        <br><label class="optradio"><input type="radio" name="adult_lock" value="extreme" required><span style="color: red; font-weight: bold;">Extrémní </span>(znásilnění nebo podrobně popsané krvavé scény)<span class="radiomark"></span>
-</label></td>
+    <td class="option volby"><label class="optradio"><input type="radio" name="adult_lock" value="Žádný" required><span style="color: green; font-weight: bold;">Žádný</span><span class="radiomark"></span></label>
+        <br><label class="optradio"><input type="radio" name="adult_lock" value="13+ (vyšší výskyt vulgarismů)" required><span style="color: gold; font-weight: bold;">13+ </span>(vyšší výskyt vulgarismů)<span class="radiomark"></span></label>
+        <br><label class="optradio"><input type="radio" name="adult_lock" value="15+ (vyšší výskyt násilí)" required><span style="color: orange; font-weight: bold;">15+ </span>(vyšší výskyt násilí)<span class="radiomark"></span></label>
+        <br><label class="optradio"><input type="radio" name="adult_lock" value="18+ (erotika)" required><span style="color: orangered; font-weight: bold;">18+ </span>(erotika)<span class="radiomark"></span></label>
+        <br><label class="optradio"><input type="radio" name="adult_lock" value="Extrémní (znásilnění nebo podrobně popsané krvavé scény)" required><span style="color: red; font-weight: bold;">Extrémní </span>(znásilnění nebo podrobně popsané krvavé scény)<span class="radiomark"></span></label></td>
   </tr><tr>
       <td class="volby" style="vertical-align: top;">Forma psaní:</td>
-      <td class="option volby"><label class="optradio"><input type="radio" name="forma" value="ich" required>Ich<span class="radiomark"></span>
-</label>
-          <br><label class="optradio"><input type="radio" name="forma" value="er" required>Er<span class="radiomark"></span>
-</label>
-          <br><label class="optradio"><input type="radio" name="forma" value="jina" required>Jiná<span class="radiomark"></span>
-</label></td>
+      <td class="option volby"><label class="optradio"><input type="radio" name="forma" value="Ich" required>Ich<span class="radiomark"></span></label>
+          <br><label class="optradio"><input type="radio" name="forma" value="Er" required>Er<span class="radiomark"></span></label>
+          <br><label class="optradio"><input type="radio" name="forma" value="Jiná" required>Jiná<span class="radiomark"></span></label></td>
   </tr><tr>
       <td>Výskyt LGBT:</td>
       <td class="top"><label class="container"><input type="checkbox" name="lgbt" id="lgbtID" onchange="lgbtq()"><span class="checkmarkOFF">Ne</span><span class="checkmarkON">Ano</span></label></td>
   </tr><tr>
       <td class="suboption volby" style="vertical-align: top">Typ:</td>
-            <td class="option suboption volby"><label class="optcheckbox"><input type="checkbox" name="gxg" id="gxgID" disabled> Gilr x girl<span class="checkmark"></span>
-</label>
-            <br><label class="optcheckbox"><input type="checkbox" name="bxb" id="bxbID" disabled> Boy x boy<span class="checkmark"></span>
-</label>
-            <br><label class="optcheckbox"><input type="checkbox" name="trans" id="transID" disabled> Trans<span class="checkmark"></span>
-</label>
-            <br><label class="optcheckbox"><input type="checkbox" name="asexual" id="asexualID" disabled> Asexual<span class="checkmark"></span>
-</label></td>
+            <td class="option suboption volby"><label class="optcheckbox"><input type="checkbox" name="gxg" id="gxgID" disabled> Gilr x girl<span class="checkmark"></span></label>
+            <br><label class="optcheckbox"><input type="checkbox" name="bxb" id="bxbID" disabled> Boy x boy<span class="checkmark"></span></label>
+            <br><label class="optcheckbox"><input type="checkbox" name="trans" id="transID" disabled> Trans<span class="checkmark"></span></label>
+            <br><label class="optcheckbox"><input type="checkbox" name="asexual" id="asexualID" disabled> Asexual<span class="checkmark"></span></label></td>
   </tr><tr>
       <td class="suboption volby" style="vertical-align: top">Význam:</td>
-            <td class="option suboption volby"><label class="optradio"><input type="radio" name="vyznal_lgbt" value="hlavni" id="hlavniID" required>Hlavní<span class="radiomark"></span>
-</label>
-                <br><label class="optradio"><input type="radio" name="vyznal_lgbt" value="vedlejsi" id="vedlejsiID" required>Vedlejší<span class="radiomark"></span>
-</label></td>
+            <td class="option suboption volby"><label class="optradio"><input type="radio" name="vyznal_lgbt" value="Hlavní" id="hlavniID" required disabled>Hlavní<span class="radiomark"></span></label>
+                <br><label class="optradio"><input type="radio" name="vyznal_lgbt" value="Vedlejší" id="vedlejsiID" required disabled>Vedlejší<span class="radiomark"></span></label></td>
   </tr><tr>
       <td>Alternative universe: <br> <i style="font-size: smaller;color: dodgerblue;">*Odporuje předloze</i></td>
       <td class="top"><label class="container"><input type="checkbox" name="AU"><span class="checkmarkOFF">Ne</span><span class="checkmarkON">Ano</span></label></td>
   </tr><tr>
       <td style="vertical-align: top;"> Výskyt OC: <br> <i style="font-size: smaller;color: dodgerblue;">*Nekánonické postava</i></td>
-    <td class="option volby"><label class="optradio"><input type="radio" name="OC" value="most" required>Všechny nebo většina postav OC<span class="radiomark"></span></label>
-        <br><label class="optradio"><input type="radio" name="OC" value="main">OC především hlavní postava<span class="radiomark"></span></label>
-        <br><label class="optradio"><input type="radio" name="OC" value="none">Bez OC nebo OC jen ve vedlejších rolích<span class="radiomark"></span></label>
+    <td class="option volby"><label class="optradio"><input type="radio" name="OC" value="Všechny nebo většina postav OC" required>Všechny nebo většina postav OC<span class="radiomark"></span></label>
+        <br><label class="optradio"><input type="radio" name="OC" value="OC především hlavní postava">OC především hlavní postava<span class="radiomark"></span></label>
+        <br><label class="optradio"><input type="radio" name="OC" value="Bez OC nebo OC jen ve vedlejších rolích">Bez OC nebo OC jen ve vedlejších rolích<span class="radiomark"></span></label>
     </td>
   </tr><tr>
       <td style="vertical-align: top;"> Ship: <br> <i style="font-size: smaller;color: dodgerblue;">*párování postav</i></td>
