@@ -27,8 +27,8 @@ class databaseModel extends PDO
 
             $config = ''; // Protoze PHP debug byl zmateny kvuli var $config
             var_dump(self::$config);
-            var_dump(self::$mode);
             self::$mode     = self::$config['mode']();
+            var_dump(self::$mode);
             // Database connection data
             $database   = self::$config['database'][self::$mode]['database'];
             $host       = self::$config['database'][self::$mode]['host'];
