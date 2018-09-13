@@ -11,6 +11,6 @@ define('APP_DIR', __DIR__);
 $config = require (APP_DIR.'/config.php');
 $mode   = $config['mode']();
 databaseModel::$config = $config;
-// databaseModel::$mode = $mode;
-
+databaseModel::$mode = $mode;
+var_dump(databaseModel::$mode);
 define('BASEPATH', $config['baseDir'][$mode]);
