@@ -9,8 +9,9 @@
 define('APP_DIR', __DIR__);
 
 $config = require (APP_DIR.'/config.php');
-databaseModel::$config = $config;
 $mode   = $config['mode']();
+databaseModel::$config = $config;
+databaseModel::$mode = $mode;
 
 define('BASEPATH', $config['baseDir'][$mode]);
 
