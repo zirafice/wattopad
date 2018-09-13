@@ -25,12 +25,11 @@ class databaseModel extends PDO
 
         if(self::$instance == null){
 
+            // TODO: Why host cannot take self::$config['mode'](); syntax?
             $config = ''; // Protoze PHP debug byl zmateny kvuli var $config
-
-            echo '<pre>'.print_r(self::$config, true).'</pre>';
             // Mode setup moved to init.php
             // self::$mode     = self::$config['mode']();
-            var_dump(self::$mode);
+
             // Database connection data
             $database   = self::$config['database'][self::$mode]['database'];
             $host       = self::$config['database'][self::$mode]['host'];
