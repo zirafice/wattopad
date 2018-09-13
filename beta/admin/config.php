@@ -12,7 +12,7 @@ return [
         if ($_SERVER['SERVER_NAME'] == 'local.osia' || $_SERVER['SERVER_NAME'] == 'localhost'){
             return 'dev';
         }
-        if ($_SERVER['SERVER_NAME'] == ''){
+        if ($_SERVER['SERVER_NAME'] == 'test.wattopad.tk'){
             return 'test';
         }
         // Kdyz se nejedna o test ani o dev tak vrat produkction
@@ -29,10 +29,10 @@ return [
         ],
         // test na hostingu
         'test' => [
-            'host' => '',
-            'user' => '',
-            'password' => '',
-            'database' => ''
+            'host' => 'localhost',
+            'user' => 'wattopad',
+            'password' => 'p593erka6lut8',
+            'database' => 'wattopad'
         ],
         // Produkcni nastaveni
         'production' => [
@@ -44,12 +44,8 @@ return [
     ],
     // base Dir nastaveni
     'baseDir' => [
-        'dev' => '/wattopad/beta/admin'
-    ],
-    [
-        'test' => 'web/'
-    ],
-    [
+        'dev' => '/wattopad/beta/admin',
+        'test' => '/beta/admin/',
         'production' => ''
     ]
 ];
