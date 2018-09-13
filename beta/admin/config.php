@@ -45,7 +45,7 @@ return [
     // base Dir nastaveni
     'baseDir' => [
         'dev' => '/wattopad/beta/admin',
-        'test' => '/beta/admin/',
+        'test' => '/beta/admin',
         'production' => ''
     ]
 ];
