@@ -13,3 +13,6 @@ databaseModel::$config = $config;
 $mode   = $config['mode']();
 
 define('BASEPATH', $config['baseDir'][$mode]);
+
+var_dump($mode);
+var_dump(BASEPATH);
