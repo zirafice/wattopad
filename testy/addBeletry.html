@@ -1,0 +1,160 @@
+<html>
+<head>
+    <TITLE>WattoPad form add story</TITLE>
+    <meta charset="utf-8">
+</head>
+<style>
+/*pole tabulky*/
+.top {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+}
+/* The container */
+.container {
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmarkON {
+    position: absolute;
+    top: 0;
+    left: 45;
+    height: 20px;
+    width: 45px;
+    text-align: center;
+    background-color: silver;
+}
+
+.checkmarkOFF {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 45px;
+    text-align: center;
+    background-color: lightgreen;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmarkON {
+    background-color: lightgreen;
+}
+
+.container input:checked ~ .checkmarkOFF {
+    background-color: silver;
+}
+
+</style>
+
+<script language="JavaScript">
+function addGenre() {
+    var m1 = document.addBeletry.genresNo;
+    var m2 = document.addBeletry.genresYesID;
+
+    m1len = m1.length ;
+    for ( i=0; i<m1len ; i++){
+        if (m1.options[i].selected == true ) {
+            m2len = m2.length;
+            m2.options[m2len]= new Option(m1.options[i].text);
+        }
+    }
+
+    for ( i = (m1len -1); i>=0; i--){
+        if (m1.options[i].selected == true ) {
+            m1.options[i] = null;
+        }
+    }
+}
+
+function removeGenre() {
+    var m1 = document.addBeletry.genresNo;
+    var m2 = document.addBeletry.genresYesID;
+
+    m2len = m2.length ;
+        for ( i=0; i<m2len ; i++){
+            if (m2.options[i].selected == true ) {
+                m1len = m1.length;
+                m1.options[m1len]= new Option(m2.options[i].text);
+            }
+        }
+        for ( i=(m2len-1); i>=0; i--) {
+            if (m2.options[i].selected == true ) {
+                m2.options[i] = null;
+            }
+        }
+}
+
+function selectAllChoosenGenres(){
+    var genres = document.addBeletry.genresYesID;
+    var SelectLen = genres.length;
+    for(i = 0; i < SelectLen; i++) {
+      genres.options[i].selected = true;
+    }
+    return true;
+}
+</script>
+
+<body>
+<form name="addBeletry" method="POST" action="saveBeletry.php" enctype="multipart/form-data" onSubmit=selectAllChoosenGenres()>
+<table>
+  <tr>
+    <td> Název: </td>
+    <td><input type="text" name="title" size="54"></td>
+  </tr><tr>
+    <td> Autor: </td>
+    <td><input type="text" name="author" size="54"></td>
+  </tr><tr>
+    <td> Odkaz: </td>
+    <td><input type="text" name="link" size="54"></td>
+  </tr><tr>
+    <td> Obálka: </td>
+    <td><input type="file" name="cover" accept="image/jpeg" ></td>
+  </tr>
+  </tr><tr>
+    <td> Dokončeno: </td>
+    <td class="top"><label class="container"><input type="checkbox" name="full"><span class="checkmarkOFF">Ne</span><span class="checkmarkON">Ano</span></label></td>
+  </tr>
+  </tr><tr>
+    <td style="vertical-align: top;"> Popis/anotace: </td>
+    <td><textarea  name="descr" rows="10" cols="64" ></textarea></td>
+  </tr>
+  </tr><tr>
+    <td style="vertical-align: top;"> Žánry: </td>
+    <td>
+	<table><tr>
+	    <td> Použité žánry <br> <select style="width: 190px;" name="genresYes[]" id="genresYesID" size="10" multiple>
+	    </select></td>
+	    <td>  <input type="button" name="larrow" value="<<" onClick="addGenre()"><br><input type="button" name="rarrow" value=">>" onClick="removeGenre()"> </td>
+	    <td> Ostatní žánry <br> <select style="color: silver;width: 190px;" name="genresNo" size="10" multiple>
+		<option value="1">Akční</option>
+		<option value="2">ChickLit</option>
+		<option value="3">Detektivka</option>
+		<option value="4">Fantasy</option>
+		<option value="5">Sci-fi</option>
+	    </select></td>
+	</tr></table>
+    </td>
+  </tr>
+  </tr><tr>
+    <td style="vertical-align: top;"> Klíčová slova: <br> <i style="font-size: smaller;color: grey;">oddělte čárkou</i></td>
+    <td><textarea name="keywords" rows="10" cols="64"></textarea></td>
+  </tr>
+  </tr><tr>
+    <td style="vertical-align: top;"> Spoilery: <br> <i style="font-size: smaller;color: grey;">zobrazí se jen na vyžádání</i></td>
+    <td><textarea name="keywords" rows="10" cols="64"></textarea></td>
+  </tr><tr>
+    <td colspan=2><input type=submit name="send" value="send"></td>
+  </tr>
+</table>
+</form>
+</body>
+</html>	
+
