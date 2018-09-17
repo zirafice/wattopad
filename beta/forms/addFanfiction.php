@@ -55,7 +55,7 @@ function Multiple () {
 <body>
     <h1>Formulář pro přidání fanfikce</h1>
     <hr>
-<form name="addFanfiction" method="POST" action="saveFanfiction.php" enctype="multipart/form-data">
+<form name="addFanfiction" method="POST" action="../admin/index.php" enctype="multipart/form-data">
 <table cellspacing="5px">
   <tr>
     <td> Název: </td>
@@ -71,7 +71,7 @@ function Multiple () {
     <td><input type="file" name="cover" id="coverID" class="file" accept="image/jpeg"><label class="file">Vyberte soubor</label></td>
   </tr><tr>
     <td> Dokončeno: </td>
-    <td class="top"><label class="container"><input type="checkbox" name="full"><span class="checkmarkOFF">Ne</span><span class="checkmarkON">Ano</span></label></td>
+    <td class="top"><label class="container"><input type="checkbox" name="full" value="1"><span class="checkmarkOFF">Ne</span><span class="checkmarkON">Ano</span></label></td>
   </tr><tr>
       <td class="volby" style="vertical-align: top;">Jazyk:</td>
     <td class="option volby"><label class="optradio"><input type="radio" name="jazyk" value="Čeština" required>Čeština<span class="radiomark"></span></label>
@@ -94,19 +94,54 @@ function Multiple () {
     </td>
   </tr><tr id="FandomID" hidden>
       <td style="vertical-align: top;"> Fandom: </td>
-              <td><select name="fandom" size="10" id="FanTab">
-                      <option name="option">*hodnoty z tabulky*</option>
-          </select>
+              <td><?php
+                            require('wrapper');
+                            Db::connect('údaje pro připojení');
+                            $fandomy = Db::queryALL('
+                    SELECT fandom
+                    FROM fandomy
+                    ORDER BY fandom
+                    ');
+                echo('<select name="fandom[]" size="10" multiple>');
+                foreach ($fandomy as $f) {
+                    echo('<option value="' . htmlspecialchars($f['fandom']));
+                    echo('">' . htmlspecialchars($f['fandom']));
+                    echo('</option>');
+                }
+                echo('</select>')
+                ?></td>
   </tr><tr id="OsobnostID" hidden>
       <td style="vertical-align: top;"> Osobnost: </td>
-              <td><select name="osobnost" size="10" id="OsTab">
-                      <option name="option">*hodnoty z tabulky*</option>
-          </select>
+              <td><?php
+                    $osobnosti = Db::queryALL('
+                    SELECT osobnost
+                    FROM osobnosti
+                    ORDER BY osobnost
+                    ');
+                echo('<select name="osobnost[]" size="10" multiple>');
+                foreach ($osobnost as $o) {
+                    echo('<option value="' . htmlspecialchars($o['osobnost']));
+                    echo('">' . htmlspecialchars($o['osobnost']));
+                    echo('</option>');
+                }
+                echo('</select>')
+                ?></td>
   </tr><tr id="Anime2ID" hidden>
       <td style="vertical-align: top;" id="AnTab"> Anime: </td>
-              <td><select name="anime" size="10">
-                      <option name="option">*hodnoty z tabulky*</option>
-          </select>
+              <td><?php
+                    $anime = Db::queryALL('
+                    SELECT anime
+                    FROM anime
+                    ORDER BY anime
+                    ');
+                echo('<select name="anime[]" size="10" multiple>');
+                foreach ($anime as $a) {
+                    echo('<option value="' . htmlspecialchars($a['anime']));
+                    echo('">' . htmlspecialchars($a['anime']));
+                    echo('</option>');
+                }
+                echo('</select>')
+                ?></td>
   </tr><tr>
     <td style="vertical-align: top;"> Klíčová slova: <br> <i style="font-size: smaller;color: dodgerblue;">oddělte čárkou</i></td>
     <td><textarea name="keywords" rows="10" cols="60" class="pole"></textarea></td>
@@ -115,7 +150,7 @@ function Multiple () {
     <td><textarea name="spoilery" rows="10" cols="60" class="pole"></textarea></td>
   </tr><tr>
     <td> Výskyt romantiky: </td>
-    <td class="top"><label class="container"><input type="checkbox" name="romantic"><span class="checkmarkOFF">Ne</span><span class="checkmarkON">Ano</span></label></td>
+    <td class="top"><label class="container"><input type="checkbox" name="romantic" value="1"><span class="checkmarkOFF">Ne</span><span class="checkmarkON">Ano</span></label></td>
   </tr><tr>
     <td> Počet kapitol: </td>
     <td><input type="number" name="pocetkap" size="50" class="pole"></td>
@@ -143,20 +178,20 @@ function Multiple () {
           <br><label class="optradio"><input type="radio" name="forma" value="Jiná" required>Jiná<span class="radiomark"></span></label></td>
   </tr><tr>
       <td>Výskyt LGBT:</td>
-      <td class="top"><label class="container"><input type="checkbox" name="lgbt" id="lgbtID" onchange="lgbtq()"><span class="checkmarkOFF">Ne</span><span class="checkmarkON">Ano</span></label></td>
+      <td class="top"><label class="container"><input type="checkbox" name="lgbt" value="1" id="lgbtID" onchange="lgbtq()"><span class="checkmarkOFF">Ne</span><span class="checkmarkON">Ano</span></label></td>
   </tr><tr>
       <td class="suboption volby" style="vertical-align: top">Typ:</td>
-            <td class="option suboption volby"><label class="optcheckbox"><input type="checkbox" name="gxg" id="gxgID" disabled> Gilr x girl<span class="checkmark"></span></label>
-            <br><label class="optcheckbox"><input type="checkbox" name="bxb" id="bxbID" disabled> Boy x boy<span class="checkmark"></span></label>
-            <br><label class="optcheckbox"><input type="checkbox" name="trans" id="transID" disabled> Trans<span class="checkmark"></span></label>
-            <br><label class="optcheckbox"><input type="checkbox" name="asexual" id="asexualID" disabled> Asexual<span class="checkmark"></span></label></td>
+            <td class="option suboption volby"><label class="optcheckbox"><input type="checkbox" name="gxg" value="Gilr x girl" id="gxgID" disabled> Gilr x girl<span class="checkmark"></span></label>
+            <br><label class="optcheckbox"><input type="checkbox" name="bxb" value="Boy x boy" id="bxbID" disabled> Boy x boy<span class="checkmark"></span></label>
+            <br><label class="optcheckbox"><input type="checkbox" name="trans" value="Trans" id="transID" disabled> Trans<span class="checkmark"></span></label>
+            <br><label class="optcheckbox"><input type="checkbox" name="asexual" value="Asexual" id="asexualID" disabled> Asexual<span class="checkmark"></span></label></td>
   </tr><tr>
       <td class="suboption volby" style="vertical-align: top">Význam:</td>
             <td class="option suboption volby"><label class="optradio"><input type="radio" name="vyznal_lgbt" value="Hlavní" id="hlavniID" required disabled>Hlavní<span class="radiomark"></span></label>
                 <br><label class="optradio"><input type="radio" name="vyznal_lgbt" value="Vedlejší" id="vedlejsiID" required disabled>Vedlejší<span class="radiomark"></span></label></td>
   </tr><tr>
       <td>Alternative universe: <br> <i style="font-size: smaller;color: dodgerblue;">*Odporuje předloze</i></td>
-      <td class="top"><label class="container"><input type="checkbox" name="AU"><span class="checkmarkOFF">Ne</span><span class="checkmarkON">Ano</span></label></td>
+      <td class="top"><label class="container"><input type="checkbox" name="AU" value="1"><span class="checkmarkOFF">Ne</span><span class="checkmarkON">Ano</span></label></td>
   </tr><tr>
       <td style="vertical-align: top;"> Výskyt OC: <br> <i style="font-size: smaller;color: dodgerblue;">*Nekánonické postava</i></td>
     <td class="option volby"><label class="optradio"><input type="radio" name="OC" value="Všechny nebo většina postav OC" required>Všechny nebo většina postav OC<span class="radiomark"></span></label>
@@ -165,10 +200,10 @@ function Multiple () {
     </td>
   </tr><tr>
       <td style="vertical-align: top;"> Ship: <br> <i style="font-size: smaller;color: dodgerblue;">*párování postav</i></td>
-    <td class="option volby"><label class="optcheckbox"><input type="checkbox" name="noShip" id="noShipID" onchange="shipy()">Ne<span class="checkmark"></span></label>
-        <br><label class="optcheckbox"><input type="checkbox" name="canonShip" id="canonShipID">Kánonický ship<span class="checkmark"></span></label>
-        <br><label class="optcheckbox"><input type="checkbox" name="noncanonShip" id="noncanonShipID">Nekánonický ship<span class="checkmark"></span></label>
-        <br><label class="optcheckbox"><input type="checkbox" name="OCship" id="OCshipID">Ship OC s kánonickou postavou<span class="checkmark"></span></label>
+    <td class="option volby"><label class="optcheckbox"><input type="checkbox" name="noShip" value="Ne" id="noShipID" onchange="shipy()">Ne<span class="checkmark"></span></label>
+        <br><label class="optcheckbox"><input type="checkbox" name="canonShip" value="Kánonický ship" id="canonShipID">Kánonický ship<span class="checkmark"></span></label>
+        <br><label class="optcheckbox"><input type="checkbox" name="noncanonShip" value="Nekánonický ship" id="noncanonShipID">Nekánonický ship<span class="checkmark"></span></label>
+        <br><label class="optcheckbox"><input type="checkbox" name="OCship" value="Ship OC s kánonickou postavou" id="OCshipID">Ship OC s kánonickou postavou<span class="checkmark"></span></label>
     </td>
   </tr><tr>
       <td></td><td style="margin-top: 5px; display: block;"><input type="submit" class="tlacitko" value=" Odeslat "></td>
@@ -176,4 +211,4 @@ function Multiple () {
 </table>
 </form>
 </body>
-</html>	
+</html>
