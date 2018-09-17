@@ -8,7 +8,7 @@
 <script language="JavaScript">
 function addGenre() {
     var m1 = document.addBeletry.genresNo;
-    var m2 = document.addBeletry.genresYes[];
+    var m2 = document.getElementById('genresYes');
     m1len = m1.length ;
     for ( i=0; i<m1len ; i++){
         if (m1.options[i].selected === true ) {
@@ -24,7 +24,7 @@ function addGenre() {
 }
 function removeGenre() {
     var m1 = document.addBeletry.genresNo;
-    var m2 = document.addBeletry.genresYes[];
+    var m2 = document.getElementById('genresYes');
     m2len = m2.length ;
         for ( i=0; i<m2len ; i++){
             if (m2.options[i].selected === true ) {
@@ -128,7 +128,7 @@ function character()
     
     <td>
 	<table><tr>
-	    <td> Použité žánry <br> <select name="genresYes[]" size="10" multiple required>
+	    <td> Použité žánry <br> <select name="genresYes[]" id="genresYes" size="10" multiple required>
 	    </select></td>
             <td>  <input type="button" name="larrow" class="tlacitko" style="font-size: initial; font-weight: bold;" value=" << " onClick="addGenre()"><br><input type="button" name="rarrow" class="tlacitko" style="font-size: initial; font-weight: bold;" value=" >> " onClick="removeGenre()"> </td>
 	    <td> Ostatní žánry <br> <select style="color: lightskyblue;" name="genresNo" size="10" multiple>
