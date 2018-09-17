@@ -38,6 +38,14 @@ function removeGenre() {
             }
         }
 }
+function selectAllChoosenGenres(){
+    var genres = document.getElementById('genresYes');
+    var SelectLen = genres.length;
+    for(i = 0; i < SelectLen; i++) {
+      genres.options[i].selected = true;
+    }
+    return true;
+}
 function lgbtq()
             {
                 if (document.getElementById('lgbtID').checked === true)
@@ -221,7 +229,7 @@ function character()
             <br><label class="optradio"><input type="radio" name="pohlavi" value="Žena" id="zenaID">Žena<span class="radiomark"></span></label>
             <br><label class="optradio"><input type="radio" name="pohlavi" value="Jiné/nemá" id="otherID" required>Jiné/nemá<span class="radiomark"></span></label></td>
   </tr><tr>
-          <td></td><td style="margin-top: 5px; display: block;"><input type="submit" class="tlacitko" value=" Odeslat "></td>
+          <td></td><td style="margin-top: 5px; display: block;"><input type="submit" class="tlacitko" value=" Odeslat " onclick="selectAllChoosenGenres()"></td>
   </tr>
 </table>
 </form>
