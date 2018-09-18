@@ -78,6 +78,32 @@ function removeGenre2() {
             }
         }
 }
+function ShowLGBT() {
+    if (document.getElementById("1").checked == true || document.getElementById("2").checked == true) {
+        document.getElementById("5").hidden = false;
+        document.getElementById("6").hidden = false;
+    }
+    else {
+        document.getElementById("5").hidden = true;
+        document.getElementById("6").hidden = true;
+    }
+    if (document.getElementById("2").checked == true) {
+        document.getElementById("4").hidden = false;
+    }
+    else {
+        document.getElementById("4").hidden = true;
+    }
+}
+function ShowPostava() {
+    if (document.getElementById("7").checked == true || document.getElementById("9").checked == true) {
+        document.getElementById("10").hidden = false;
+        document.getElementById("11").hidden = false;
+    }
+    else {
+        document.getElementById("10").hidden = true;
+        document.getElementById("11").hidden = true;
+    }
+}
 </script>
 
 <body>
@@ -106,26 +132,27 @@ function removeGenre2() {
 	    </select></td>
             <td>  <input type="button" name="larrow" class="tlacitko" style="font-size: initial; font-weight: bold;" value=" << " onClick="addGenre()"><br><input type="button" name="rarrow" class="tlacitko" style="font-size: initial; font-weight: bold;" value=" >> " onClick="removeGenre()"> </td>
 	    <td> Ostatní žánry <br> <select style="color: lightskyblue;" name="genres" size="10" multiple>
-		<option value="1">Akční</option>
-                <option value="2">ChickLit</option>
-                <option value="3">Detektivka</option>
-                <option value="4">Dětská literatura</option>
-                <option value="5">Dobrodružné</option>
-                <option value="6">Fantasy</option>
-                <option value="7">Historický</option>
-                <option value="8">Horor</option>
-                <option value="9">Humor</option>
-                <option value="10">Katastrofický</option>
-                <option value="11">Krimi</option>
-                <option value="12">Obecná fikce</option>
-                <option value="13">Paranormal</option>
-                <option value="14">Postapokalyptický</option>
-                <option value="15">Romantický</option>
-                <option value="16">Sci-fi</option>
-                <option value="17">Thriller</option>
-                <option value="18">Upíři</option>
-                <option value="19">Válečný</option>
-                <option value="20">Vlkodlaci</option>
+		<option value="Akční">Akční</option>
+                <option value="ChickLit">ChickLit</option>
+                <option value="Detektivka">Detektivka</option>
+                <option value="Dětská literatura">Dětská literatura</option>
+                <option value="Dobrodružné">Dobrodružné</option>
+                <option value="Fantasy">Fantasy</option>
+                <option value="Historický">Historický</option>
+                <option value="Horor">Horor</option>
+                <option value="Humor">Humor</option>
+                <option value="Katastrofický">Katastrofický</option>
+                <option value="Krimi">Krimi</option>
+                <option value="Obecná fikce">Obecná fikce</option>
+                <option value="Paranormal">Paranormal</option>
+                <option value="Postapokalyptický">Postapokalyptický</option>
+                <option value="Romantický">Romantický</option>
+                <option value="Sci-fi">Sci-fi</option>
+                <option value="Spirituální">Spirituální</option>
+                <option value="Thriller">Thriller</option>
+                <option value="Upíři">Upíři</option>
+                <option value="Válečný">Válečný</option>
+                <option value="Vlkodlaci">Vlkodlaci</option>
                 </select></td>
                 <td>  <input type="button" name="larrow" class="tlacitko" style="font-size: initial; font-weight: bold;" value=" << " onClick="addGenre2()"><br><input type="button" name="rarrow" class="tlacitko" style="font-size: initial; font-weight: bold;" value=" >> " onClick="removeGenre2()"> </td>
                 <td> Vyloučit žánry <br> <select name="genresNo" size="10" multiple >
@@ -168,41 +195,41 @@ function removeGenre2() {
           <br><label class="optcheckbox"><input type="checkbox" name="forma" value="jina" >Jiná<span class="checkmark"></span></label></td>
   </tr><tr>
       <td style="vertical-align: top">Výskyt LGBT:</td>
-      <td class="option volby"><label class="optradio"><input type="radio" name="lgbt" value="">Je mi to jedno<span class="radiomark"></span></label>
-          <br><label class="optradio"><input type="radio" name="lgbt" value="ano">Ano<span class="radiomark"></span></label>
-          <br><label class="optradio"><input type="radio" name="lgbt" value="ne">Ne<span class="radiomark"></span></label></td>
-  </tr><tr>
+      <td class="option volby"><label class="optradio"><input type="radio" name="lgbt" value="" id="1" onchange="ShowLGBT()">Je mi to jedno<span class="radiomark"></span></label>
+          <br><label class="optradio"><input type="radio" name="lgbt" value="ano" id="2" onchange="ShowLGBT()">Ano<span class="radiomark"></span></label>
+          <br><label class="optradio"><input type="radio" name="lgbt" value="ne" id="3" onchange="ShowLGBT()">Ne<span class="radiomark"></span></label></td>
+  </tr><tr hidden id="4">
       <td class="suboption volby" style="vertical-align: top">Typ:</td>
             <td class="option suboption volby"><label class="optcheckbox"><input type="checkbox" name="gxg" id="gxgID"> Gilr x girl<span class="checkmark"></span></label>
             <br><label class="optcheckbox"><input type="checkbox" name="bxb" id="bxbID"> Boy x boy<span class="checkmark"></span></label>
             <br><label class="optcheckbox"><input type="checkbox" name="trans" id="transID"> Trans<span class="checkmark"></span></label>
             <br><label class="optcheckbox"><input type="checkbox" name="asexual" id="asexualID"> Asexual<span class="checkmark"></span></label></td>
-  </tr><tr>
+  </tr><tr hidden id="5">
       <td class="suboption volby" style="vertical-align: top">Vyloučit LGBT typ:</td>
             <td class="option suboption volby"><label class="optcheckbox"><input type="checkbox" name="gxg" id="gxgID"> Gilr x girl<span class="checkmark"></span></label>
             <br><label class="optcheckbox"><input type="checkbox" name="bxb" id="bxbID"> Boy x boy<span class="checkmark"></span></label>
             <br><label class="optcheckbox"><input type="checkbox" name="trans" id="transID"> Trans<span class="checkmark"></span></label>
             <br><label class="optcheckbox"><input type="checkbox" name="asexual" id="asexualID"> Asexual<span class="checkmark"></span></label></td>
-  </tr><tr>
+  </tr><tr hidden id="6">
       <td class="suboption volby" style="vertical-align: top">Význam:</td>
             <td class="option suboption volby"><label class="optcheckbox"><input type="checkbox" name="hlavni" id="hlavniID" >Hlavní<span class="checkmark"></span></label>
                 <br><label class="optcheckbox"><input type="checkbox" name="vedlejsi" id="vedlejsiID">Vedlejší<span class="checkmark"></span></label></td>
   </tr><tr>
       <td class="volby" style="vertical-align: top;">Hlavní postava/y: </td>
-      <td class="option volby"><label class="optradio"><input type="radio" name="postava" value="">Je mi to jedno<span class="radiomark"></span></label>
-          <br><label class="optradio"><input type="radio" name="postava" value="vice">Více hlavních postav<span class="radiomark"></span></label>
-          <br><label class="optradio"><input type="radio" name="postava" value="jedna">Jedna hlavní postava<span class="radiomark"></span></label></td>
-  </tr><tr>
+      <td class="option volby"><label class="optradio"><input type="radio" name="postava" value="" id="7" onchange="ShowPostava()">Je mi to jedno<span class="radiomark"></span></label>
+          <br><label class="optradio"><input type="radio" name="postava" value="vice" id="8" onchange="ShowPostava()">Více hlavních postav<span class="radiomark"></span></label>
+          <br><label class="optradio"><input type="radio" name="postava" value="jedna" id="9" onchange="ShowPostava()">Jedna hlavní postava<span class="radiomark"></span></label></td>
+  </tr><tr hidden id="10">
       <td class="volby" style="vertical-align: top;">Věk hlavní postavy:</td>
-      <td class="option volby"><label class="optcheckbox"><input type="checkbox" name="dite" id="diteID"> Dítě (<12 let)<span class="checkmark"></span></label>
-            <br><label class="optcheckbox"><input type="checkbox" name="pubertak" id="pubertakID" > Puberťák (12-15 let)<span class="checkmark"></span></label>
-            <br><label class="optcheckbox"><input type="checkbox" name="teenager" id="teenagerID"> Teenager (16-19 let)<span class="checkmark"></span></label>
-            <br><label class="optcheckbox"><input type="checkbox" name="dospely" id="dospelyID"> Dospělý (20+ let)<span class="checkmark"></span></label></td>
-  </tr><tr>
+      <td class="option volby"><label class="optcheckbox"><input type="checkbox" name="dite"> Dítě (<12 let)<span class="checkmark"></span></label>
+            <br><label class="optcheckbox"><input type="checkbox" name="pubertak"> Puberťák (12-15 let)<span class="checkmark"></span></label>
+            <br><label class="optcheckbox"><input type="checkbox" name="teenager"> Mladý dospělý (16-19 let)<span class="checkmark"></span></label>
+            <br><label class="optcheckbox"><input type="checkbox" name="dospely"> Dospělý (20+ let)<span class="checkmark"></span></label></td>
+  </tr><tr hidden id="11">
       <td class="volby" style="vertical-align: top;">Pohlaví hlavní postavy:</td>
-      <td class="option volby"><label class="optcheckbox"><input type="checkbox" name="muz" id="muzID">Muž<span class="checkmark"></span></label>
-            <br><label class="optcheckbox"><input type="checkbox" name="zena" id="zenaID">Žena<span class="checkmark"></span></label>
-            <br><label class="optcheckbox"><input type="checkbox" name="other" id="otherID" >Jiné/nemá<span class="checkmark"></span></label></td>
+      <td class="option volby"><label class="optcheckbox"><input type="checkbox" name="muz">Muž<span class="checkmark"></span></label>
+            <br><label class="optcheckbox"><input type="checkbox" name="zena">Žena<span class="checkmark"></span></label>
+            <br><label class="optcheckbox"><input type="checkbox" name="other">Jiné/nemá<span class="checkmark"></span></label></td>
   </tr><tr>
           <td></td><td style="margin-top: 5px; display: block;"><input type="submit" class="tlacitko" value=" Odeslat "></td>
   </tr>

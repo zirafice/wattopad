@@ -37,8 +37,8 @@ class beletrieModel
         'ratio'         => 'ratio'
     );
 
-    private $table      = 'beletrie';
-    private $lgbt_value   = "";
+    private $table          = 'beletrie';
+    private $lgbt_value     = "";
 
     // TODO: Typ LGBT
 
