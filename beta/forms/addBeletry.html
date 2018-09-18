@@ -8,43 +8,47 @@
 <script language="JavaScript">
 function addGenre() {
     var m1 = document.addBeletry.genresNo;
-    var m2 = document.addBeletry.genresYes;
-
+    var m2 = document.getElementById('genresYes');
     m1len = m1.length ;
     for ( i=0; i<m1len ; i++){
-        if (m1.options[i].selected == true ) {
+        if (m1.options[i].selected === true ) {
             m2len = m2.length;
             m2.options[m2len]= new Option(m1.options[i].text);
         }
     }
-
     for ( i = (m1len -1); i>=0; i--){
-        if (m1.options[i].selected == true ) {
+        if (m1.options[i].selected === true ) {
             m1.options[i] = null;
         }
     }
 }
-
 function removeGenre() {
     var m1 = document.addBeletry.genresNo;
-    var m2 = document.addBeletry.genresYes;
-
+    var m2 = document.getElementById('genresYes');
     m2len = m2.length ;
         for ( i=0; i<m2len ; i++){
-            if (m2.options[i].selected == true ) {
+            if (m2.options[i].selected === true ) {
                 m1len = m1.length;
                 m1.options[m1len]= new Option(m2.options[i].text);
             }
         }
         for ( i=(m2len-1); i>=0; i--) {
-            if (m2.options[i].selected == true ) {
+            if (m2.options[i].selected === true ) {
                 m2.options[i] = null;
             }
         }
 }
+function selectAllChoosenGenres(){
+    var genres = document.getElementById('genresYes');
+    var SelectLen = genres.length;
+    for(i = 0; i < SelectLen; i++) {
+      genres.options[i].selected = true;
+    }
+    return true;
+}
 function lgbtq()
             {
-                if (document.getElementById('lgbtID').checked == true)
+                if (document.getElementById('lgbtID').checked === true)
                 {
                     document.getElementById('gxgID').disabled = false;
                     document.getElementById('bxbID').disabled = false;
@@ -70,7 +74,7 @@ function lgbtq()
             }
 function character()
             {
-                if (document.getElementById('postavaID').checked == true)
+                if (document.getElementById('postavaID').checked === true)
                 {
                     document.getElementById('diteID').disabled = true;
                     document.getElementById('diteID').checked = false;
@@ -118,7 +122,7 @@ function character()
     <td><input type="file" name="cover" id="coverID" class="file" accept="image/jpeg"><label class="file">Vyberte soubor</label></td>
   </tr><tr>
     <td> Dokončeno: </td>
-    <td class="top"><label class="container"><input type="checkbox" name="full"><span class="checkmarkOFF">Ne</span><span class="checkmarkON">Ano</span></label></td>
+    <td class="top"><label class="container"><input type="checkbox" name="full" value="1"><span class="checkmarkOFF">Ne</span><span class="checkmarkON">Ano</span></label></td>
   </tr><tr>
       <td class="volby" style="vertical-align: top;">Jazyk:</td>
     <td class="option volby"><label class="optradio"><input type="radio" name="jazyk" value="Čeština" required>Čeština<span class="radiomark"></span></label>
@@ -132,7 +136,7 @@ function character()
     
     <td>
 	<table><tr>
-	    <td> Použité žánry <br> <select name="genresYes" size="10" multiple required>
+	    <td> Použité žánry <br> <select name="genresYes[]" id="genresYes" size="10" multiple required>
 	    </select></td>
             <td>  <input type="button" name="larrow" class="tlacitko" style="font-size: initial; font-weight: bold;" value=" << " onClick="addGenre()"><br><input type="button" name="rarrow" class="tlacitko" style="font-size: initial; font-weight: bold;" value=" >> " onClick="removeGenre()"> </td>
 	    <td> Ostatní žánry <br> <select style="color: lightskyblue;" name="genresNo" size="10" multiple>
@@ -169,7 +173,7 @@ function character()
     <td><textarea name="spoilery" rows="10" cols="60" class="pole"></textarea></td>
   </tr><tr>
     <td> Výskyt romantiky: </td>
-    <td class="top"><label class="container"><input type="checkbox" name="romantic"><span class="checkmarkOFF">Ne</span><span class="checkmarkON">Ano</span></label></td>
+    <td class="top"><label class="container"><input type="checkbox" name="romantic" value="1"><span class="checkmarkOFF">Ne</span><span class="checkmarkON">Ano</span></label></td>
   </tr><tr>
     <td> Počet kapitol: </td>
     <td><input type="number" name="pocetkap" size="50" class="pole"></td>
@@ -196,14 +200,14 @@ function character()
           <br><label class="optradio"><input type="radio" name="forma" value="Er" required>Er<span class="radiomark"></span></label>
           <br><label class="optradio"><input type="radio" name="forma" value="Jiná" required>Jiná<span class="radiomark"></span></label></td>
   </tr><tr>
-      <td>Výskyt LGBT:</td> <!-- TODO: Trigger na ano? ( rozbaleni ) -->
-      <td class="top"><label class="container"><input type="checkbox" name="lgbt" id="lgbtID" onchange="lgbtq()"><span class="checkmarkOFF">Ne</span><span class="checkmarkON">Ano</span></label></td>
+      <td>Výskyt LGBT:</td>
+      <td class="top"><label class="container"><input type="checkbox" name="lgbt" value="1" id="lgbtID" onchange="lgbtq()"><span class="checkmarkOFF">Ne</span><span class="checkmarkON">Ano</span></label></td>
   </tr><tr>
       <td class="suboption volby" style="vertical-align: top">Typ:</td>
-            <td class="option suboption volby"><label class="optcheckbox"><input type="checkbox" name="gxg" id="gxgID" disabled> Gilr x girl<span class="checkmark"></span></label>
-            <br><label class="optcheckbox"><input type="checkbox" name="bxb" id="bxbID" disabled> Boy x boy<span class="checkmark"></span></label>
-            <br><label class="optcheckbox"><input type="checkbox" name="trans" id="transID" disabled> Trans<span class="checkmark"></span></label>
-            <br><label class="optcheckbox"><input type="checkbox" name="asexual" id="asexualID" disabled> Asexual<span class="checkmark"></span></label></td>
+            <td class="option suboption volby"><label class="optcheckbox"><input type="checkbox" name="gxg" value="Gilr x girl" id="gxgID" disabled> Gilr x girl<span class="checkmark"></span></label>
+            <br><label class="optcheckbox"><input type="checkbox" name="bxb" value="Boy x boy" id="bxbID" disabled> Boy x boy<span class="checkmark"></span></label>
+            <br><label class="optcheckbox"><input type="checkbox" name="trans" value="Trans" id="transID" disabled> Trans<span class="checkmark"></span></label>
+            <br><label class="optcheckbox"><input type="checkbox" name="asexual" value="Asexual" id="asexualID" disabled> Asexual<span class="checkmark"></span></label></td>
   </tr><tr>
       <td class="suboption volby" style="vertical-align: top">Význam:</td>
             <td class="option suboption volby"><label class="optradio"><input type="radio" name="vyznal_lgbt" value="Hlavní" id="hlavniID" required disabled>Hlavní<span class="radiomark"></span></label>
@@ -212,12 +216,12 @@ function character()
       <td> Hlavní postava: </td>
   </tr><tr>
       <td class="suboption volby">Více hlavních postav: </td>
-      <td class="option suboption volby"><label class="optcheckbox"><input type="checkbox" name="postava" id="postavaID" onchange="character()"><span class="checkmark"></span></label></td>
+      <td class="option suboption volby"><label class="optcheckbox"><input type="checkbox" name="postava" value="1" id="postavaID" onchange="character()"><span class="checkmark"></span></label></td>
   </tr><tr>
       <td class="suboption volby" style="vertical-align: top;">Věk:</td>
       <td class="option suboption volby"><label class="optradio"><input type="radio" name="vek" value="Dítě (<12 let)" id="diteID"> Dítě (<12 let)<span class="radiomark"></span></label>
             <br><label class="optradio"><input type="radio" name="vek" value="Puberťák (12-15 let)" id="pubertakID" required> Puberťák (12-15 let)<span class="radiomark"></span></label>
-            <br><label class="optradio"><input type="radio" name="vek" value="Teenager (16-19 let)" id="teenagerID"> Mladý dospělý (16-19 let)<span class="radiomark"></span></label>
+            <br><label class="optradio"><input type="radio" name="vek" value="Mladý dospělý (16-19 let)" id="teenagerID"> Mladý dospělý (16-19 let)<span class="radiomark"></span></label>
             <br><label class="optradio"><input type="radio" name="vek" value="Dospělý (20+ let)" id="dospelyID"> Dospělý (20+ let)<span class="radiomark"></span></label></td>
   </tr><tr>
       <td class="volby suboption" style="vertical-align: top;">Pohlaví:</td>
@@ -225,7 +229,7 @@ function character()
             <br><label class="optradio"><input type="radio" name="pohlavi" value="Žena" id="zenaID">Žena<span class="radiomark"></span></label>
             <br><label class="optradio"><input type="radio" name="pohlavi" value="Jiné/nemá" id="otherID" required>Jiné/nemá<span class="radiomark"></span></label></td>
   </tr><tr>
-          <td></td><td style="margin-top: 5px; display: block;"><input type="submit" name="FormBeletrie" class="tlacitko" value=" Odeslat "></td>
+          <td></td><td style="margin-top: 5px; display: block;"><input type="submit"  name="FormBeletrie"  class="tlacitko" value=" Odeslat " onclick="selectAllChoosenGenres()"></td>
   </tr>
 </table>
 </form>
