@@ -1,4 +1,4 @@
-//Vkládat se bude přes include
+<!--Vkládat se bude přes include. Pro zobrazení ve výsledcích vyhledávání se uberou ty palce-->
  <?php
 require_once('Db.php');
 Db::connect('127.0.0.1', 'testdb', 'root', '');
