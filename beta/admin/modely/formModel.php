@@ -24,7 +24,16 @@ class formModel
         $this->database = databaseModel::getInstance();
 
         foreach($data as $key => $value) {
-            $this->data[$key] = strip_tags($value);
+            if (is_array($value)){
+                foreach($value as $key2 => $value2){
+                    $this->data[$key][$key2] = strip_tags($value2);
+                }
+            } elseif($key == 'vek') {
+                // protoze '<' to zkurvi
+                $this->data[$key] = $value;
+            } else {
+                $this->data[$key] = strip_tags($value);
+            }
         }
 
         foreach ($this->forms as $name => $function){

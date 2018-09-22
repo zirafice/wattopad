@@ -44,6 +44,7 @@ class beletrieModel
 
     public function insertRow($data){
 
+        // TODO: Zpracovat cover
         foreach( $data as $field => $value ){
             switch ($field) {
                 case 'gxg':
@@ -70,6 +71,11 @@ class beletrieModel
                     $this->lgbt_value .= $value.",";
                     break;
 
+                case 'genresYes':
+                    $fields[]   = $this->transformationArray[$field];
+                    $values[]   = "'".$this->extractGenres($value)."'";
+                    break;
+
                 default:
                     $fields[] = $this->transformationArray[$field];
                     $values[] = "'".$value."'";
@@ -89,5 +95,9 @@ class beletrieModel
 
         $database = databaseModel::getInstance();
         return $database->processStatement($query);
+    }
+
+    private function extractGenres($genres){
+        return implode(",", $genres);
     }
 }
